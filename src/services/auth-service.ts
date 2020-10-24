@@ -4,11 +4,11 @@ import { CreateUserDto } from '../dtos/users-dto';
 import HttpException from '../exceptions/http-exception';
 import { DataStoredInToken, TokenData } from '../interfaces/auth-interface';
 import { User } from '../interfaces/users-interface';
-import userModel from '../models/users-model';
+import usersModel from '../models/users-model';
 import { isEmptyObject } from '../utils/util';
 
-class AuthService {
-  users = userModel;
+export default class AuthService {
+  users = usersModel;
 
   async signup(userData: CreateUserDto): Promise<User> {
     if (isEmptyObject(userData)) throw new HttpException(400, 'You\'re not userData');
@@ -58,5 +58,3 @@ class AuthService {
     return `Authorization=${tokenData.token}; HttpOnly; Max-Age=${tokenData.expiresIn};`;
   }
 }
-
-export default AuthService;

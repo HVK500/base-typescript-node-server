@@ -4,10 +4,10 @@ import { RequestWithUser } from '../interfaces/auth-interface';
 import { User } from '../interfaces/users-interface';
 import AuthService from '../services/auth-service';
 
-class AuthController {
-  authService = new AuthService();
+export default class AuthController {
+  private authService = new AuthService();
 
-  signUp = async (req: Request, res: Response, next: NextFunction) => {
+  async signUp(req: Request, res: Response, next: NextFunction): Promise<void> {
     const userData: CreateUserDto = req.body;
 
     try {
@@ -19,7 +19,7 @@ class AuthController {
     }
   }
 
-  logIn = async (req: Request, res: Response, next: NextFunction) => {
+  async logIn(req: Request, res: Response, next: NextFunction): Promise<void> {
     const userData: CreateUserDto = req.body;
 
     try {
@@ -32,7 +32,7 @@ class AuthController {
     }
   }
 
-  logOut = async (req: RequestWithUser, res: Response, next: NextFunction) => {
+  async logOut(req: RequestWithUser, res: Response, next: NextFunction): Promise<void> {
     const userData: User = req.user;
 
     try {
@@ -45,5 +45,3 @@ class AuthController {
     }
   }
 }
-
-export default AuthController;

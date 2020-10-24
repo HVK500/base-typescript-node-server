@@ -2,11 +2,11 @@ import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from '../dtos/users-dto';
 import HttpException from '../exceptions/http-exception';
 import { User } from '../interfaces/users-interface';
-import userModel from '../models/users-model';
+import usersModel from '../models/users-model';
 import { isEmptyObject } from '../utils/util';
 
-class UserService {
-  users = userModel;
+export default class UserService {
+  users = usersModel;
 
   async findAllUser(): Promise<User[]> {
     const users: User[] = this.users;
@@ -58,5 +58,3 @@ class UserService {
     return deleteUserData;
   }
 }
-
-export default UserService;

@@ -4,7 +4,7 @@ import { CreateUserDto } from '../dtos/users-dto';
 import Route from '../interfaces/routes-interface';
 import validationMiddleware from '../middlewares/validation-middleware';
 
-class UsersRoute implements Route {
+export default class UsersRoute implements Route {
   path = '/users';
   router = Router();
   usersController = new UsersController();
@@ -21,5 +21,3 @@ class UsersRoute implements Route {
     this.router.delete(`${this.path}/:id(\\d+)`, this.usersController.deleteUser);
   }
 }
-
-export default UsersRoute;

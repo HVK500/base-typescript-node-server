@@ -7,7 +7,7 @@ import logger from 'morgan';
 import Routes from './interfaces/routes-interface';
 import errorMiddleware from './middlewares/error-middleware';
 
-class App {
+export default class App {
   app: express.Application;
   port: (string | number);
   env: boolean;
@@ -79,5 +79,3 @@ class App {
     this.app.use(errorMiddleware);
   }
 }
-
-export default App;

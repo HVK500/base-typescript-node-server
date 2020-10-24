@@ -5,7 +5,7 @@ import Route from '../interfaces/routes-interface';
 import authMiddleware from '../middlewares/auth-middleware';
 import validationMiddleware from '../middlewares/validation-middleware';
 
-class AuthRoute implements Route {
+export default class AuthRoute implements Route {
   router = Router();
   authController = new AuthController();
 
@@ -19,5 +19,3 @@ class AuthRoute implements Route {
     this.router.post(`/logout`, authMiddleware, this.authController.logOut);
   }
 }
-
-export default AuthRoute;
