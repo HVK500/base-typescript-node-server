@@ -6,7 +6,7 @@ paths:
 # [GET] users
   /users:
     get:
-      tags: 
+      tags:
       - users
       summary: Find All Users
       responses:
@@ -122,5 +122,5 @@ definitions:
         description: user Password
 
 schemes:
- - https
- - http
+  - https
+  - http
